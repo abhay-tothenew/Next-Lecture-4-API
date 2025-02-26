@@ -1,0 +1,213 @@
+
+[
+    {
+      "id": 1,
+      "name": "Emma Thompson",
+      "grade": "10A",
+      "email": "emma.t@student.edu",
+      "subject_scores": {"Mathematics": 92, "Physics": 88, "Literature": 95}
+    },
+    {
+      "id": 2,
+      "name": "Jacob Martinez",
+      "grade": "11B",
+      "email": "jacob.m@student.edu",
+      "subject_scores": {"Mathematics": 78, "Physics": 91, "Biology": 84}
+    },
+    {
+      "id": 3,
+      "name": "Sophia Lee",
+      "grade": "10A",
+      "email": "sophia.l@student.edu",
+      "subject_scores": {"Mathematics": 89, "Literature": 96, "History": 93}
+    },
+    {
+      "id": 4,
+      "name": "Ethan Wright",
+      "grade": "12C",
+      "email": "ethan.w@student.edu",
+      "subject_scores": {"History": 95, "Literature": 88, "Biology": 79}
+    },
+    {
+      "id": 5,
+      "name": "Olivia Nelson",
+      "grade": "10A",
+      "email": "olivia.n@student.edu",
+      "subject_scores": {"Mathematics": 97, "Physics": 85, "Biology": 92}
+    },
+    {
+      "id": 6,
+      "name": "William Davis",
+      "grade": "11B",
+      "email": "william.d@student.edu",
+      "subject_scores": {"Literature": 94, "History": 89, "Mathematics": 82}
+    },
+    {
+      "id": 7,
+      "name": "Ava Rodriguez",
+      "grade": "12C",
+      "email": "ava.r@student.edu",
+      "subject_scores": {"Physics": 94, "Mathematics": 90, "Biology": 88}
+    },
+    {
+      "id": 8,
+      "name": "James Kim",
+      "grade": "10A",
+      "email": "james.k@student.edu",
+      "subject_scores": {"Mathematics": 91, "Literature": 84, "History": 87}
+    },
+    {
+      "id": 9,
+      "name": "Isabella Clark",
+      "grade": "11B",
+      "email": "isabella.c@student.edu",
+      "subject_scores": {"Literature": 98, "Mathematics": 83, "Physics": 80}
+    },
+    {
+      "id": 10,
+      "name": "Benjamin Walker",
+      "grade": "12C",
+      "email": "benjamin.w@student.edu",
+      "subject_scores": {"Physics": 93, "Biology": 91, "Mathematics": 95}
+    },
+    {
+      "id": 11,
+      "name": "Mia Anderson",
+      "grade": "10A",
+      "email": "mia.a@student.edu",
+      "subject_scores": {"History": 92, "Literature": 90, "Biology": 85}
+    },
+    {
+      "id": 12,
+      "name": "Alexander Taylor",
+      "grade": "11B",
+      "email": "alexander.t@student.edu",
+      "subject_scores": {"Mathematics": 96, "Physics": 89, "Literature": 82}
+    },
+    {
+      "id": 13,
+      "name": "Charlotte Brown",
+      "grade": "12C",
+      "email": "charlotte.b@student.edu",
+      "subject_scores": {"Literature": 97, "History": 94, "Mathematics": 88}
+    },
+    {
+      "id": 14,
+      "name": "Daniel Miller",
+      "grade": "10A",
+      "email": "daniel.m@student.edu",
+      "subject_scores": {"Physics": 92, "Biology": 88, "Mathematics": 85}
+    },
+    {
+      "id": 15,
+      "name": "Amelia Jones",
+      "grade": "11B",
+      "email": "amelia.j@student.edu",
+      "subject_scores": {"Mathematics": 94, "Literature": 87, "History": 90}
+    },
+    {
+      "id": 16,
+      "name": "Henry Garcia",
+      "grade": "12C",
+      "email": "henry.g@student.edu",
+      "subject_scores": {"History": 96, "Literature": 91, "Physics": 83}
+    },
+    {
+      "id": 17,
+      "name": "Abigail Wilson",
+      "grade": "10A",
+      "email": "abigail.w@student.edu",
+      "subject_scores": {"Biology": 95, "Mathematics": 89, "Literature": 91}
+    },
+    {
+      "id": 18,
+      "name": "Matthew Thomas",
+      "grade": "11B",
+      "email": "matthew.t@student.edu",
+      "subject_scores": {"Physics": 95, "Mathematics": 92, "Biology": 87}
+    },
+    {
+      "id": 19,
+      "name": "Emily Lewis",
+      "grade": "12C",
+      "email": "emily.l@student.edu",
+      "subject_scores": {"Literature": 93, "History": 88, "Mathematics": 86}
+    },
+    {
+      "id": 20,
+      "name": "Sebastian Hall",
+      "grade": "10A",
+      "email": "sebastian.h@student.edu",
+      "subject_scores": {"History": 90, "Physics": 84, "Literature": 89}
+    },
+    {
+      "id": 21,
+      "name": "Elizabeth Young",
+      "grade": "11B",
+      "email": "elizabeth.y@student.edu",
+      "subject_scores": {"Mathematics": 98, "Biology": 90, "Physics": 86}
+    },
+    {
+      "id": 22,
+      "name": "Christopher Allen",
+      "grade": "12C",
+      "email": "christopher.a@student.edu",
+      "subject_scores": {"Literature": 90, "History": 93, "Physics": 82}
+    },
+    {
+      "id": 23,
+      "name": "Sofia Scott",
+      "grade": "10A",
+      "email": "sofia.s@student.edu",
+      "subject_scores": {"History": 94, "Biology": 89, "Mathematics": 87}
+    },
+    {
+      "id": 24,
+      "name": "Jackson King",
+      "grade": "11B",
+      "email": "jackson.k@student.edu",
+      "subject_scores": {"Biology": 96, "Physics": 90, "Literature": 84}
+    },
+    {
+      "id": 25,
+      "name": "Avery Baker",
+      "grade": "12C",
+      "email": "avery.b@student.edu",
+      "subject_scores": {"Physics": 97, "Mathematics": 93, "History": 85}
+    },
+    {
+      "id": 26,
+      "name": "Scarlett Adams",
+      "grade": "10A",
+      "email": "scarlett.a@student.edu",
+      "subject_scores": {"Biology": 93, "Literature": 88, "Physics": 81}
+    },
+    {
+      "id": 27,
+      "name": "Joseph Evans",
+      "grade": "11B",
+      "email": "joseph.e@student.edu",
+      "subject_scores": {"Biology": 94, "Mathematics": 87, "History": 89}
+    },
+    {
+      "id": 28,
+      "name": "Camila Nelson",
+      "grade": "12C",
+      "email": "camila.n@student.edu",
+      "subject_scores": {"History": 91, "Physics": 83, "Literature": 95}
+    },
+    {
+      "id": 29,
+      "name": "Samuel Hill",
+      "grade": "10A",
+      "email": "samuel.h@student.edu",
+      "subject_scores": {"Biology": 97, "Mathematics": 90, "Literature": 86}
+    },
+    {
+      "id": 30,
+      "name": "Victoria Turner",
+      "grade": "11B",
+      "email": "victoria.t@student.edu",
+      "subject_scores": {"Biology": 92, "Physics": 85, "Mathematics": 91}
+    }
+  ]

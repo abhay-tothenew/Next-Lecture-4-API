@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "name": "Dr. Sarah Johnson",
+    "subject": "Mathematics",
+    "email": "sarah.johnson@school.edu",
+    "students": [1, 5, 8, 12, 15, 21]
+  },
+  {
+    "id": 2,
+    "name": "Prof. Michael Chen",
+    "subject": "Physics",
+    "email": "michael.chen@school.edu",
+    "students": [2, 7, 10, 14, 18, 25]
+  },
+  {
+    "id": 3,
+    "name": "Ms. Rachel Garcia",
+    "subject": "Literature",
+    "email": "rachel.garcia@school.edu",
+    "students": [3, 6, 9, 13, 19, 22]
+  },
+  {
+    "id": 4,
+    "name": "Mr. David Wilson",
+    "subject": "History",
+    "email": "david.wilson@school.edu",
+    "students": [4, 11, 16, 20, 23, 28]
+  },
+  {
+    "id": 5,
+    "name": "Dr. Emily Patel",
+    "subject": "Biology",
+    "email": "emily.patel@school.edu",
+    "students": [17, 24, 26, 27, 29, 30]
+  },
+  {
+    "id": 6,
+    "name": "Prof. Alex Turner",
+    "subject": "Computer Science",
+    "email": "alex.turner@school.edu",
+    "students": [23, 28, 29, 30]
+  },
+  {
+    "id": 7,
+    "name": "Dr Harjyot",
+    "subject": "English",
+    "email": "harj.kaur@school.edu",
+    "students": [17, 24, 26, 27, 29, 30]
+  },
+  {
+    "id":8,
+    "name": "dr bipin",
+    "subject": "Chemistry",
+    "email": "bipin@edu.com",
+    "students": []
+  },
+  {
+    "id": 9,
+    "name": "dr bipin",
+    "subject": "Chemistry",
+    "email": "bipin@edu.com",
+    "students": []
+  }
+]

@@ -1,0 +1,92 @@
+.container {
+    padding: 24px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .nav {
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    color: #3b82f6;
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .nav a:hover {
+    text-decoration: underline;
+  }
+  
+  .card {
+    background-color: white;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  
+  .text {
+    color: #4b5563;
+    margin-bottom: 6px;
+  }
+  
+  .sectionTitle {
+    margin-top: 24px;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  .list {
+    margin-top: 16px;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .listItem {
+    background-color: white;
+    padding: 12px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  
+  .listText {
+    font-weight: 500;
+  }
+  
+  .listSubtext {
+    font-size: 14px;
+    color: #6b7280;
+  }
+  
+  .link {
+    color: #3b82f6;
+    font-size: 14px;
+    text-decoration: none;
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+  }
+  
+  .error {
+    padding: 16px;
+    color: #dc2626;
+  }
+  
+  .loading {
+    padding: 16px;
+    text-align: center;
+  }
+  
