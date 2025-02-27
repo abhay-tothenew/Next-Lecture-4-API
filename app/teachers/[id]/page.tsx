@@ -1,14 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import Link from "next/link";
 
-interface Params {
-  id: string;
-}
+export default function TeacherDetailsPage({ params }: { params: Promise<{ id: string }> }) {
 
-export default function TeacherDetailsPage({ params }: { params: Params }) {
-  const teacherId = params.id;
+  const { id } = use(params);
+  const teacherId = parseInt(id);
+
   interface Teacher {
     id: number;
     name: string;
@@ -27,7 +26,7 @@ export default function TeacherDetailsPage({ params }: { params: Params }) {
 
   const [students, setStudents] = useState<Student[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchTeacherAndStudents() {
@@ -38,7 +37,7 @@ export default function TeacherDetailsPage({ params }: { params: Params }) {
         }
         const teachersData = await teacherResponse.json();
         const teacherData: Teacher | undefined = teachersData.find(
-          (t: Teacher) => t.id === parseInt(teacherId)
+          (t: Teacher) => t.id === teacherId
         );
 
         if (!teacherData) {
@@ -56,7 +55,8 @@ export default function TeacherDetailsPage({ params }: { params: Params }) {
 
         setLoading(false);
       } catch (err) {
-        // setError(err.message);
+        alert(err);
+        setError("Failed to fetch teacher details");
         setLoading(false);
       }
     }

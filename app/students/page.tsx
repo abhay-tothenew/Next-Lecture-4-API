@@ -23,7 +23,7 @@ interface Student {
 export default function StudentsPage() {
   const [students, setStudents] = useState<Student[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchStudents() {
@@ -36,7 +36,8 @@ export default function StudentsPage() {
         setStudents(data);
         setLoading(false);
       } catch (err) {
-        // setError(err.message);
+        alert(err);
+        setError("Failed to fetch students");
         setLoading(false);
       }
     }

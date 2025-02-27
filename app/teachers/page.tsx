@@ -3,18 +3,17 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
+interface Teacher {
+  id: number;
+  name: string;
+  subject: string;
+  email: string;
+  students?: number[];
+}
 export default function TeachersPage() {
-  const [teachers, setTeachers] = useState<
-    {
-      id: number;
-      name: string;
-      subject: string;
-      email: string;
-      students?: any[];
-    }[]
-  >([]);
+  const [teachers, setTeachers] = useState<Teacher[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchTeachers() {
@@ -27,7 +26,8 @@ export default function TeachersPage() {
         setTeachers(data);
         setLoading(false);
       } catch (err) {
-        // setError(err.message);
+        alert(err);
+        setError("Failed to fetch teachers");
         setLoading(false);
       }
     }

@@ -1,11 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import Link from "next/link";
 
-interface Params {
-  id: string;
-}
 
 interface Student {
   id: number;
@@ -15,11 +12,12 @@ interface Student {
   subject_scores: Record<string, number>;
 }
 
-export default function StudentDetailsPage({ params }: { params: Params }) {
-  const studentId = parseInt(params.id);
+export default function StudentDetailsPage({ params }: { params: Promise<{id: string}>}) {
+  const {id} = use(params);
+  const studentId = parseInt(id);
   const [student, setStudent] = useState<Student | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchStudentDetails() {
@@ -40,7 +38,8 @@ export default function StudentDetailsPage({ params }: { params: Params }) {
         setStudent(foundStudent);
         setLoading(false);
       } catch (err) {
-        // setError(err.message);
+        alert(err);
+        setError("Failed to fetch student details");
         setLoading(false);
       }
     }
