@@ -1,121 +1,76 @@
 "use client";
-import Link from "next/link";
-import { useEffect, useState } from "react";
 
-interface Teacher {
-  id: number;
-  name: string;
-  subject: string;
-  email: string;
-  students: number[];
-}
+import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function TeachersPage() {
-  const [teachers, setTeachers] = useState<Teacher[]>([]);
+  const [teachers, setTeachers] = useState<
+    {
+      id: number;
+      name: string;
+      subject: string;
+      email: string;
+      students?: any[];
+    }[]
+  >([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchTeachers = async () => {
-      const response = await fetch("/api/teachers");
-      const data = await response.json();
-      setTeachers(data);
-    };
+    async function fetchTeachers() {
+      try {
+        const response = await fetch("/api/teachers");
+        if (!response.ok) {
+          throw new Error("Failed to fetch teachers");
+        }
+        const data = await response.json();
+        setTeachers(data);
+        setLoading(false);
+      } catch (err) {
+        // setError(err.message);
+        setLoading(false);
+      }
+    }
 
     fetchTeachers();
   }, []);
 
-  const handlePostTeacher = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  if (loading) return <div className="p-4">Loading teachers...</div>;
+  if (error) return <div className="p-4 text-red-500">Error: {error}</div>;
 
-    const formData = new FormData(event.currentTarget);
-    const newTeacher = {
-      id: teachers.length + 1,
-      name: formData.get("name") as string,
-      subject: formData.get("subject") as string,
-      email: formData.get("email") as string,
-      students: [],
-    };
-
-    const response = await fetch("/api/teachers", {
-      method: "POST",
-      body: JSON.stringify(newTeacher),
-    });
-
-    if (response.ok) {
-      const data = await response.json();
-      setTeachers([...teachers, data]);
-    } else {
-      console.error("Failed to create teacher:", response.status);
-    }
-  };
-
-  console.log(teachers);
   return (
-    <div className="flex flex-col items-center justify-center p-6 bg-gray-50">
-      <nav className="mb-4 flex justify-between text-blue-500 gap-10">
-        <Link href="/" className="hover:underline">
+    <div className="p-6">
+      <h1 className="text-2xl font-bold mb-6">Teachers Directory</h1>
+
+      <div className="mb-4 flex gap-4">
+        <Link href="/" className="text-blue-500 hover:underline">
           Home
         </Link>
-        <Link href="/students" className="hover:underline">
-          Back to Students
+        <Link href="/students" className="text-blue-500 hover:underline">
+          View All Students
         </Link>
-      </nav>
-      <h1 className="text-3xl font-bold text-center mb-8">
-        Teachers Directory
-      </h1>
-      <form onSubmit={handlePostTeacher}>
-        <div className="flex flex-col gap-4">
-          <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            className="border rounded-lg p-2 w-full"
-          />
-          <label htmlFor="subject">Subject:</label>
-          <input
-            type="text"
-            id="subject"
-            name="subject"
-            required
-            className="border rounded-lg p-2 w-full"
-          />
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            className="border rounded-lg p-2 w-full"
-          />
-          <input type="hidden" name="students" value="[]" />
-          <label htmlFor="students">Students:</label>
-          <textarea
-            id="students"
-            name="students"
-            required
-            className="border rounded-lg p-2 w-full"
-          ></textarea>
+      </div>
 
-          <button
-            type="submit"
-            className="bg-blue-500 mb-4 border rounded-lg p-2 font-bold"
-          >
-            Add Teacher
-          </button>
-        </div>
-      </form>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {teachers.map((teacher) => (
           <div
             key={teacher.id}
-            className="border rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer"
+            className="border rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow"
           >
-            <h2 className="text-xl font-semibold mb-2">{teacher.name}</h2>
-            <p className="text-gray-600">{teacher.subject}</p>
-            <p className="text-gray-600">{teacher.email}</p>
-            <p className="text-gray-600">Students: {teacher.students.length}</p>
-            <Link href={`/teachers/${teacher.id}`}>View Details</Link>
+            <h2 className="text-xl font-semibold">{teacher.name}</h2>
+            <p className="text-gray-600">Subject: {teacher.subject}</p>
+            <p className="text-gray-600">Email: {teacher.email}</p>
+            <p className="text-gray-600">
+              Students: {teacher.students?.length || 0}
+            </p>
+            <div className="mt-4">
+              <Link
+                href={`/teachers/${teacher.id}`}
+                className="text-blue-500 hover:underline"
+              >
+                View Details
+              </Link>
+            </div>
           </div>
         ))}
       </div>

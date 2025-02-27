@@ -1,11 +1,12 @@
+
 import fs from "fs";
 import { NextResponse } from "next/server";
 import path from "path";
 
 
 export async function GET(request: Request) {
-    console.log(request);
-
+    const url = new URL(request.url);
+    console.log(url.searchParams);
     const filePath = path.join(process.cwd(), "public/data/teachersData/teachers.json");
 
     try{

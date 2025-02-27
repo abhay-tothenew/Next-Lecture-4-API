@@ -3,8 +3,9 @@ import fs from 'fs';
 import path from 'path';
 
 export async function GET(request:Request, { params }: { params: Promise<{ id: string }> }) {
-    console.log(request);
 
+  const url = new URL(request.url);
+  console.log(url.searchParams);
   try {
 
     const { id } = await params;

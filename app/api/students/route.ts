@@ -5,8 +5,8 @@ import fs from "fs";
 import path from "path";
 
 export async function GET(request: Request) {
-    console.log(request);
-  const filePath = path.join(
+  const url = new URL(request.url);
+  console.log(url.searchParams);  const filePath = path.join(
     process.cwd(),
     "public/data/studentsData/students.json"
   );

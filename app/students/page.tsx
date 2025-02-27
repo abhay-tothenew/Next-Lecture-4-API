@@ -1,56 +1,95 @@
-"use client";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+'use client';
+
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+
+
 
 interface Student {
-  id: number;
-  name: string;
-  grade: string;
-  email: string;
-  subject_scores: Record<string, number>;
+  id: number
+  name: string
+  grade: string
+  email: string
+  subject_scores: Record<string, number>
 }
+
+// interface Teacher {
+//   id: number
+//   name: string
+//   subject: string
+//   email: string
+//   students?: number[]
+// }
 export default function StudentsPage() {
   const [students, setStudents] = useState<Student[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchStudents = async () => {
-      const response = await fetch("/api/students");
-      const data = await response.json();
-      setStudents(data);
-    };
+    async function fetchStudents() {
+      try {
+        const response = await fetch('/api/students');
+        if (!response.ok) {
+          throw new Error('Failed to fetch students');
+        }
+        const data = await response.json();
+        setStudents(data);
+        setLoading(false);
+      } catch (err) {
+        // setError(err.message);
+        setLoading(false);
+      }
+    }
 
     fetchStudents();
   }, []);
+
+  if (loading) return <div className="p-4">Loading students...</div>;
+  if (error) return <div className="p-4 text-red-500">Error: {error}</div>;
+
   return (
-    <div className="flex flex-col items-center justify-center p-6 bg-gray-50">
-        <nav className="mb-4 flex justify-between text-blue-500 gap-10">
-            <Link href="/" className="hover:underline">
-                Home
-            </Link>
-            <Link href="/teachers" className="hover:underline">
-                Back to Teachers            
-            </Link>
-        </nav>
-      <h1 className="text-3xl font-bold text-center mb-8">
-        Students Directory
-      </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {students.map((student) => (
-          <div
-            key={student.id}
-            className="border rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer"
-          >
-            <h2 className="text-xl font-semibold mb-2">{student.name}</h2>
-            <p className="text-gray-600">{student.grade}</p>
-            <p className="text-gray-600">{student.email}</p>
-            {Object.entries(student.subject_scores).map(([subject, score]) => (
-              <p className="text-gray-600" key ={subject}>
-                {subject}: {score}
-              </p>
-            ))}{" "}
-            <Link href={`/students/${student.id}`}>View Details</Link>
-          </div>
-        ))}
+    <div className="p-6">
+      <h1 className="text-2xl font-bold mb-6">Students Directory</h1>
+      
+      <div className="mb-4 flex gap-4">
+        <Link href="/" className="text-blue-500 hover:underline">
+          Home
+        </Link>
+        <Link href="/teachers" className="text-blue-500 hover:underline">
+          View All Teachers
+        </Link>
+      </div>
+      
+      <div className="overflow-x-auto">
+        <table className="min-w-full bg-white border rounded-lg">
+          <thead>
+            <tr className="bg-gray-100 border-b">
+              <th className="py-2 px-4 text-left">ID</th>
+              <th className="py-2 px-4 text-left">Name</th>
+              <th className="py-2 px-4 text-left">Grade</th>
+              <th className="py-2 px-4 text-left">Email</th>
+              <th className="py-2 px-4 text-left">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {students.map((student) => (
+              <tr key={student.id} className="border-b hover:bg-gray-50">
+                <td className="py-2 px-4">{student.id}</td>
+                <td className="py-2 px-4">{student.name}</td>
+                <td className="py-2 px-4">{student.grade}</td>
+                <td className="py-2 px-4">{student.email}</td>
+                <td className="py-2 px-4">
+                  <Link 
+                    href={`/students/${student.id}`}
+                    className="text-blue-500 hover:underline"
+                  >
+                    View Details
+                  </Link>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
